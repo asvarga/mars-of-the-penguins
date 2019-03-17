@@ -1,0 +1,31 @@
+Here’s a glimpse the kind of game I’m going for. These are just the ideas most pertinent to the “Goals” for the game.
+```
+- Goals
+	- A scripting game where Computation, Data, Messages, Permission are all treated like normal in-game resources
+	- Emergent gameplay: simple rules give rise to complex interactions/strategies
+	- Should be playable without scripting
+- Gameplay
+	- 1 main character (P) controlled by the player
+	- Takes place in a randomly-generated 2D grid
+		- Mine for resources and build stuff
+	- P can build bots
+		- Each bot gets a limited amount of computation per frame
+		- Each bot gets a limited amount of data
+		- Bots' actions are made "simultaneously" every frame
+	- There are also global limits on resources. Ex: exploration, energy, materials
+	- Messages can be sent between agents that are nearby
+		- Communication systems (wires/radios/stations) can be built but have limited range. 
+		- No global "internet".
+		- Bots can only be re-programmed via message passing
+	- Incorporate a robust permission system
+- Long Term Possibilities
+	- Intelligent agents that use built-in AI at a cost lower than it would be for the player to script it. They have some autonomy so are harder to control.
+	- Enemies
+	- Agents/vehicles unrestrained to the 2D grid
+- Technical
+	- P has a dedicated thread separate from the bots
+	- Global restraints limit the game's compute/memory
+	- Godot can load code at run-time, which will be crucial for scripting
+		- Limiting computation on these scripts is the fun part
+	- An object-capability model will be used to controls agents' rights
+```
