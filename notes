@@ -1,9 +1,15 @@
 
 TODO
 
-- ...
+- make util file with utility functions
+	- rotate
+	- round vectors to ints
+- hard-code some bots (this will have many dependencies along the way)
+- let Penguin give commands to adjacent bots
+- ocap and fuel limitation
 
 DONE
+- set up VS Code
 - reorganize forlders so independent parts have own folder (not by type of asset/resource)
 - upgrade to 3.1
 - set up git

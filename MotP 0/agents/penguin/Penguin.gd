@@ -1,6 +1,5 @@
-extends Node2D
+extends "res://agents/agent.gd"
 
-onready var Grid = get_parent()
 var PRESSED = {}
 var key_to_dir = {
 	"ui_right": Vector2.RIGHT,

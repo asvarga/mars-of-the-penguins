@@ -8,10 +8,11 @@ Here’s a glimpse the kind of game I’m going for. These are just the ideas mo
 	- 1 main character (P) controlled by the player
 	- Takes place in a randomly-generated 2D grid
 		- Mine for resources and build stuff
-	- P can build bots
+	- P can build and program bots
 		- Each bot gets a limited amount of computation per frame
 		- Each bot gets a limited amount of data
 		- Bots' actions are made "simultaneously" every frame
+	- Make use of a HUI
 	- There are also global limits on resources. Ex: exploration, energy, materials
 	- Messages can be sent between agents that are nearby
 		- Communication systems (wires/radios/stations) can be built but have limited range. 
