@@ -24,10 +24,19 @@ format = 1
 script = ExtResource( 4 )
 
 [node name="Penguin" parent="Grid" instance=ExtResource( 5 )]
-position = Vector2( 500, 560 )
+position = Vector2( -120.525, 200 )
 
 [node name="Bot" parent="Grid" instance=ExtResource( 6 )]
-position = Vector2( 920, 560.899 )
+position = Vector2( -120.525, 780 )
+
+[node name="Bot2" parent="Grid" instance=ExtResource( 6 )]
+position = Vector2( -120.525, 400 )
+
+[node name="Bot3" parent="Grid" instance=ExtResource( 6 )]
+position = Vector2( -120.525, 580 )
+
+[node name="Bot4" parent="Grid" instance=ExtResource( 6 )]
+position = Vector2( -120.525, 980 )
 
 [node name="TickTimer" type="Timer" parent="."]
 wait_time = 0.25

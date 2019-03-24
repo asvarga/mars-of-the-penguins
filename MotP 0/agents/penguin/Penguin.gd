@@ -11,6 +11,7 @@ var key_to_dir = {
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	for key in key_to_dir: PRESSED[key] = false
+	tween_time = 0.05
 
 #func _input(ev):
 func _process(delta):
@@ -23,6 +24,6 @@ func _process(delta):
 		PRESSED[key] = Input.is_action_pressed(key)
 	if dir == Vector2(): return
 
-	Grid.request_move(self, dir)
+	Grid.request_move(self, dir, true)
 	
 

@@ -8,6 +8,7 @@ enum CellType { NONE = -1, EMPTY, WALL }
 
 var screen_size = OS.get_window_size()
 var cell_to_agent = {}
+var QUEUE = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -23,11 +24,15 @@ func _ready():
 	for i in range(10):
 		set_cellv(Vector2(randi()%int(2*s)-s, randi()%int(2*s)-s), CellType.WALL)
 
-	scale($Penguin)
-	move($Penguin, Vector2())
+	for child in get_children(): scale(child)
 
-	scale($Bot)
-	move($Bot, Vector2(4, 0))
+	move($Bot,  Vector2(6, 0))
+	move($Bot2, Vector2(-6, 0))
+	move($Bot3, Vector2(0, 6))
+	move($Bot4, Vector2(0, -6))
+	move($Penguin, Vector2(0, 0))
+	for bot in [$Bot, $Bot2, $Bot3, $Bot4]:
+		bot.dir = ($Penguin.pos-bot.pos).normalized()
 
 func scale(obj):
 	var p_shape = obj.get_node("Area2D/CollisionShape2D").shape.get_extents()*2
@@ -40,22 +45,44 @@ func move(agent, pos):
 	cell_to_agent[pos] = agent
 	return agent.move(pos, map_to_world(pos)+cell_size/2)
 	
-func request_move(agent, dir):
-	if not agent.can_look(dir): return false
+func request_move(agent, dir, now=false):
+	if not agent.can_look(dir): return
 	var pos = agent.pos + dir
 	match look(pos):
-		[CellType.EMPTY, null]: return move(agent, pos)
-	return false
+		[CellType.EMPTY, null]: 
+			if now: move(agent, pos)
+			else: queue([agent, pos])
 
 func look(pos): 
 	return [get_cellv(pos), cell_to_agent[pos] if pos in cell_to_agent else null]
 
-func request_look (agent, dir): 
+func request_look(agent, dir): 
 	if not agent.can_look(dir): return [null, null]
 	return look(agent.pos + dir)
 
+# every action step
 func tick():
 	for child in get_children(): child.tick()
+	go()
+
+# queue up actions
+func queue(action): QUEUE.append(action)
+
+# do queued actions
+func go():
+	# first pass: look for conflicts
+	var counts = {}
+	for action in QUEUE:
+		match action:
+			[var agent, var pos]: 
+				counts[pos] = counts[pos]+1 if pos in counts else 1
+	# second pass: execute
+	for action in QUEUE:
+		match action:
+			[var agent, var pos]: 
+				if counts[pos] == 1: move(agent, pos)
+				else: agent.failed(action)
+	QUEUE = []
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
