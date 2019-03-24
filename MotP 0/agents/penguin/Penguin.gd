@@ -10,6 +10,7 @@ var key_to_dir = {
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	._ready()
 	for key in key_to_dir: PRESSED[key] = false
 	tween_time = 0.05
 

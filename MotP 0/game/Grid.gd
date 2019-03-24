@@ -1,5 +1,7 @@
 extends TileMap
 
+var Bot = preload("res://agents/bot/Bot.tscn")
+
 """
 functions like request_* are the ones that will be available to bot scripts
 """
@@ -9,30 +11,36 @@ enum CellType { NONE = -1, EMPTY, WALL }
 var screen_size = OS.get_window_size()
 var cell_to_agent = {}
 var QUEUE = []
+var dirs = [Vector2.RIGHT, Vector2.LEFT, Vector2.UP, Vector2.DOWN]
+
+export(int) var num_bots = 10
+export(int) var wall_rarity = 100
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	position = (screen_size-cell_size*scale)/2
 	
-	var s = 8
-	for x in range(-s,s+1):
-		for y in range(-s,s+1):
-			set_cellv(Vector2(x, y), CellType.WALL)
-	for x in range(-s+1,s):
-		for y in range(-s+1,s):
-			set_cellv(Vector2(x, y), CellType.EMPTY)
-	for i in range(10):
-		set_cellv(Vector2(randi()%int(2*s)-s, randi()%int(2*s)-s), CellType.WALL)
+	var w = 15
+	var h = 8
+	for x in range(-w,w+1):
+		for y in range(-h,h+1):
+			if abs(x) == w or abs(y) == h or randi()%wall_rarity == 0: 
+				set_cellv(Vector2(x, y), CellType.WALL)
+			elif get_cellv(Vector2(x, y)) != CellType.WALL: 
+				set_cellv(Vector2(x, y), CellType.EMPTY)
+	# for i in range(10):
+	# 	set_cellv(Vector2(randi()%int(2*s)-s, randi()%int(2*s)-s), CellType.WALL)
+	
+	var w1 = w-1
+	var h1 = h-1
+	for i in range(num_bots):
+		var bot = Bot.instance()
+		bot.modulate = Color(randf(), randf(), randf())
+		add_child(bot)
+		move(bot, Vector2(randi()%int(2*w1)-w1, randi()%int(2*h1)-h1), false)
+		bot.dir = dirs[randi()%4]
 
-	for child in get_children(): scale(child)
-
-	move($Bot,  Vector2(6, 0))
-	move($Bot2, Vector2(-6, 0))
-	move($Bot3, Vector2(0, 6))
-	move($Bot4, Vector2(0, -6))
-	move($Penguin, Vector2(0, 0))
-	for bot in [$Bot, $Bot2, $Bot3, $Bot4]:
-		bot.dir = ($Penguin.pos-bot.pos).normalized()
+	move($Penguin, Vector2(0, 0), false)
 
 func scale(obj):
 	var p_shape = obj.get_node("Area2D/CollisionShape2D").shape.get_extents()*2
@@ -40,10 +48,10 @@ func scale(obj):
 	var p_scale = min(p_size.x, p_size.y) * 0.9
 	obj.scale = Vector2(p_scale, p_scale)
 
-func move(agent, pos): 
+func move(agent, pos, animate=true): 
 	cell_to_agent.erase(agent.pos)
 	cell_to_agent[pos] = agent
-	return agent.move(pos, map_to_world(pos)+cell_size/2)
+	return agent.move(pos, map_to_world(pos)+cell_size/2, animate)
 	
 func request_move(agent, dir, now=false):
 	if not agent.can_look(dir): return

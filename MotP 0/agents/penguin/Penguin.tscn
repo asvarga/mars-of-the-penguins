@@ -9,6 +9,7 @@ extents = Vector2( 49.5339, 74.5622 )
 
 [node name="Penguin" type="Node2D"]
 script = ExtResource( 1 )
+tween_time = null
 
 [node name="Area2D" type="Area2D" parent="."]
 

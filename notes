@@ -1,8 +1,6 @@
 
 TODO
 
-- parallelize movement
-	- have to send message to bots when action fails
 - make util file with utility functions
 	- rotate
 	- round vectors to ints

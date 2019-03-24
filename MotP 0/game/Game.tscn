@@ -1,11 +1,10 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://game/Game.gd" type="Script" id=1]
 [ext_resource path="res://ui/hud/HUD.tscn" type="PackedScene" id=2]
 [ext_resource path="res://game/grid_tileset.tres" type="TileSet" id=3]
 [ext_resource path="res://game/Grid.gd" type="Script" id=4]
 [ext_resource path="res://agents/penguin/Penguin.tscn" type="PackedScene" id=5]
-[ext_resource path="res://agents/bot/Bot.tscn" type="PackedScene" id=6]
 
 [node name="Game" type="Node"]
 script = ExtResource( 1 )
@@ -22,21 +21,11 @@ scale = Vector2( 0.5, 0.5 )
 tile_set = ExtResource( 3 )
 format = 1
 script = ExtResource( 4 )
+num_bots = 30
+wall_rarity = 50
 
 [node name="Penguin" parent="Grid" instance=ExtResource( 5 )]
 position = Vector2( -120.525, 200 )
-
-[node name="Bot" parent="Grid" instance=ExtResource( 6 )]
-position = Vector2( -120.525, 780 )
-
-[node name="Bot2" parent="Grid" instance=ExtResource( 6 )]
-position = Vector2( -120.525, 400 )
-
-[node name="Bot3" parent="Grid" instance=ExtResource( 6 )]
-position = Vector2( -120.525, 580 )
-
-[node name="Bot4" parent="Grid" instance=ExtResource( 6 )]
-position = Vector2( -120.525, 980 )
 
 [node name="TickTimer" type="Timer" parent="."]
 wait_time = 0.25

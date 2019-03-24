@@ -6,21 +6,27 @@ var pos = Vector2()
 export var tween_time = 0.25
 
 # Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
+func _ready(): 
+	Grid.scale(self)
+	tween_time = 0.25 # TODO:
 
 # func move(new_pos, new_position=false):
 # 	pos = new_pos
 # 	position = new_position #or Grid.map_to_world(pos) + Grid.cell_size/2
 # 	return pos
 
-func move(new_pos, new_position=false):
+func move(new_pos, new_position=false, animate=true):
 	pos = new_pos
-	$Tween.interpolate_property(self, "position", 
-								position, new_position, 
-								tween_time, 
-								Tween.TRANS_LINEAR, Tween.EASE_IN)
-	$Tween.start()
+
+	if animate:
+		$Tween.interpolate_property(self, "position", 
+			position, new_position, 
+			tween_time, 
+			Tween.TRANS_LINEAR, Tween.EASE_IN)
+		$Tween.start()
+	else:
+		self.position = new_position
+
 	return pos
 
 func can_look(dir):
