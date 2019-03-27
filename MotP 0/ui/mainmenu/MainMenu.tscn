@@ -48,23 +48,33 @@ margin_bottom = 94.0
 custom_fonts/font = ExtResource( 3 )
 text = "Info"
 
-[node name="PenguinSimple" parent="." instance=ExtResource( 4 )]
-position = Vector2( 510, 293 )
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -20.0
+margin_top = -20.0
+margin_right = 20.0
+margin_bottom = 20.0
 
-[node name="PenguinSimple2" parent="." instance=ExtResource( 4 )]
-position = Vector2( 710, 263 )
+[node name="PenguinSimple" parent="CenterContainer" instance=ExtResource( 4 )]
+position = Vector2( 18, 20 )
+
+[node name="PenguinSimple2" parent="CenterContainer" instance=ExtResource( 4 )]
+position = Vector2( 218, -9.99995 )
 scale = Vector2( 0.8, 0.8 )
 
-[node name="PenguinSimple4" parent="." instance=ExtResource( 4 )]
-position = Vector2( 310, 263 )
-scale = Vector2( 0.8, 0.8 )
-
-[node name="PenguinSimple3" parent="." instance=ExtResource( 4 )]
-position = Vector2( 860, 233 )
+[node name="PenguinSimple3" parent="CenterContainer" instance=ExtResource( 4 )]
+position = Vector2( 368, -40 )
 scale = Vector2( 0.6, 0.6 )
 
-[node name="PenguinSimple5" parent="." instance=ExtResource( 4 )]
-position = Vector2( 160, 233 )
+[node name="PenguinSimple4" parent="CenterContainer" instance=ExtResource( 4 )]
+position = Vector2( -182, -9.99995 )
+scale = Vector2( 0.8, 0.8 )
+
+[node name="PenguinSimple5" parent="CenterContainer" instance=ExtResource( 4 )]
+position = Vector2( -332, -40 )
 scale = Vector2( 0.6, 0.6 )
 
 [connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_StartButton_pressed"]

@@ -16,7 +16,17 @@ color = Color( 0.545098, 0.27451, 0.180392, 1 )
 
 [node name="HUD" parent="." instance=ExtResource( 2 )]
 
-[node name="Grid" type="TileMap" parent="."]
+[node name="TickTimer" type="Timer" parent="."]
+wait_time = 0.25
+autostart = true
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+
+[node name="Grid" type="TileMap" parent="CenterContainer"]
 scale = Vector2( 0.5, 0.5 )
 tile_set = ExtResource( 3 )
 format = 1
@@ -24,11 +34,7 @@ script = ExtResource( 4 )
 num_bots = 30
 wall_rarity = 50
 
-[node name="Penguin" parent="Grid" instance=ExtResource( 5 )]
+[node name="Penguin" parent="CenterContainer/Grid" instance=ExtResource( 5 )]
 position = Vector2( -120.525, 200 )
-
-[node name="TickTimer" type="Timer" parent="."]
-wait_time = 0.25
-autostart = true
 
 [connection signal="timeout" from="TickTimer" to="." method="_on_TickTimer_timeout"]

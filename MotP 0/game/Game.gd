@@ -17,4 +17,4 @@ func _ready():
 
 
 func _on_TickTimer_timeout():
-	$Grid.tick()
+	$CenterContainer/Grid.tick()

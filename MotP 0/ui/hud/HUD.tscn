@@ -10,6 +10,6 @@ margin_left = 10.0
 margin_top = 10.0
 margin_right = 40.0
 margin_bottom = 20.0
-text = "Quit"
+text = "Back"
 
 [connection signal="pressed" from="QuitButton" to="." method="_on_QuitButton_pressed"]

@@ -3,3 +3,5 @@
 .import/
 logs/
 notes/
+export/
+export_presets.cfg
