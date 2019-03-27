@@ -1,0 +1,17 @@
+Play as a penguin who single-flipperedly colonizes Mars by building and programming robots.
+
+Move the penguin with the arrow keys.
+
+Hold SPACE+Arrow key as a bot passes next to you in that direction to convert that bot from a right-turning red to a left-turning blue. It will spread the word to other bots it meets.
+
+----
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum velit ligula, semper a porttitor non, luctus ut purus. Proin vestibulum, ex ac cursus ultrices, ipsum orci accumsan mi, a congue tellus metus aliquam purus. Donec sed posuere quam. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent quis lacinia dui. In in egestas eros. Cras blandit felis quis pharetra maximus. Etiam ultrices efficitur erat aliquam congue. Donec consequat magna et accumsan viverra. Mauris quis mi vestibulum urna semper gravida. Suspendisse vitae auctor leo.
+
+Nullam eget placerat felis. Duis rutrum nisl vel dignissim laoreet. Integer sit amet cursus risus. Nunc eleifend consectetur cursus. Nam in nisi ligula. Nullam non ipsum eget neque venenatis commodo sed non ligula. Mauris eget porttitor massa, eu gravida magna. Quisque eget magna vestibulum, egestas nunc nec, pulvinar nulla. Fusce maximus sapien ut velit fringilla, sed mollis urna faucibus. Maecenas laoreet, libero a feugiat suscipit, metus neque blandit leo, ut hendrerit purus arcu et risus. Aenean cursus ligula urna, blandit sagittis metus luctus ac. In viverra felis in tellus pretium scelerisque.
+
+Aenean sed augue sed justo lobortis eleifend a vel nisl. Aliquam quis suscipit odio, vitae maximus tortor. Duis nec elit nec felis dignissim viverra. Quisque vel ante ut enim vestibulum gravida. Nulla eleifend massa quis facilisis scelerisque. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed id scelerisque mi. Mauris ac justo euismod, euismod velit eu, placerat ipsum. Cras mattis dui sed erat molestie facilisis. Praesent euismod malesuada purus quis varius.
+
+Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Cras dapibus ut dolor ut interdum. Donec dapibus metus sed ipsum luctus fermentum. Integer eget mattis nunc, vitae maximus lorem. Nam eu venenatis mi. Duis iaculis nisi risus, sit amet laoreet neque maximus sed. Sed vitae sapien feugiat, rutrum quam id, egestas dolor. Quisque facilisis sapien quis tortor feugiat, et mattis risus feugiat. Mauris sodales tincidunt erat, nec iaculis nisi consectetur eu. Etiam egestas risus non semper semper. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Pellentesque id lacus facilisis lacus maximus vehicula. Vivamus ullamcorper urna non lectus vulputate vulputate. Nunc ullamcorper ligula at malesuada ultricies. Praesent molestie et nisl at bibendum.
+
+Morbi viverra nisi id iaculis semper. Aliquam aliquet, nibh id imperdiet dapibus, nunc ante dignissim magna, a tincidunt libero nunc imperdiet nunc. Aliquam vitae nisl ut lorem porta fermentum nec sit amet purus. Integer in egestas augue, sit amet efficitur nisi. Cras tortor leo, imperdiet ac viverra nec, suscipit vel tortor. Etiam congue lacinia elit vitae efficitur. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Morbi congue suscipit metus, ut feugiat purus. Mauris tincidunt auctor tristique.
