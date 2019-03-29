@@ -35,6 +35,6 @@ num_bots = 30
 wall_rarity = 50
 
 [node name="Penguin" parent="CenterContainer/Grid" instance=ExtResource( 5 )]
-position = Vector2( -120.525, 200 )
+position = Vector2( -2464, 60 )
 
 [connection signal="timeout" from="TickTimer" to="." method="_on_TickTimer_timeout"]

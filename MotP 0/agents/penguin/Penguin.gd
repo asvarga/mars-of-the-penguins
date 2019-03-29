@@ -1,5 +1,10 @@
 extends "res://agents/agent.gd"
 
+onready var util = preload("res://util.gd").new()
+onready var Modes = util.Modes
+
+var editing
+
 var PRESSED = {
 	"ui_right":  false,
 	"ui_left": 	 false,
@@ -29,9 +34,14 @@ func _process(delta):
 		PRESSED[action] = Input.is_action_pressed(action)
 	if dir == Vector2(): return
 
-	if PRESSED["ui_select"]: 
-		Grid.request_send(self, dir, "change")
+	if PRESSED["ui_select"] and not editing: 
+		# var rec = Grid.request_send(self, dir, "stop")
+		# if rec: Game.edit(self, dir)
+		Grid.request_edit(self, dir)
 	else:
 		Grid.request_move(self, dir, true)
+	
+	
+
 	
 
