@@ -23,5 +23,35 @@ margin_right = 210.0
 margin_bottom = 40.0
 text = "Turn Direction"
 
+[node name="FileButton" type="Button" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -37.0
+margin_top = 60.0
+margin_right = 37.0
+margin_bottom = 80.0
+text = "Open File"
+
+[node name="FileDialog" type="FileDialog" parent="."]
+visible = true
+modulate = Color( 1, 1, 1, 0.878431 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -305.0
+margin_top = -175.0
+margin_right = 305.0
+margin_bottom = 175.0
+window_title = "Open a File"
+resizable = true
+mode = 0
+access = 2
+filters = PoolStringArray( "*.motp ; MotP Script" )
+current_dir = "/Users/avarga/Documents/Godot/Mars of the Penguins/MotP 0"
+current_path = "/Users/avarga/Documents/Godot/Mars of the Penguins/MotP 0/"
+
 [connection signal="hide" from="." to="." method="exit"]
 [connection signal="item_selected" from="OptionButton" to="." method="_on_OptionButton_item_selected"]
+[connection signal="pressed" from="FileButton" to="." method="_on_FileButton_pressed"]
+[connection signal="file_selected" from="FileDialog" to="." method="_on_FileDialog_file_selected"]
