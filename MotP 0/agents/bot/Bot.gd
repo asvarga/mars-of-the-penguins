@@ -6,6 +6,7 @@ onready var Modes = util.Modes
 var dir = Vector2(0, -1)
 var mode
 var c
+var evil = false
 onready var EMPTY = Grid.CellType.EMPTY
 
 ####
@@ -28,6 +29,7 @@ func spin(): dir = util.rot_phi(dir, get_angle())
 func failed(action): spin()
 
 func receive(msg): 
+	if evil: return
 	match msg:
 		["mode", var m]: set_mode(m)
 		"cycle": set_mode((mode+1)%3)
@@ -38,6 +40,7 @@ func set_mode(m):
 		Modes.LEFT: 	modulate = Color(c, c, 1)
 		Modes.CENTER: 	modulate = Color(c, 1, c)
 		Modes.RIGHT:	modulate = Color(1, c, c)
+	if evil: modulate /= 2
 
 func get_angle():
 	match mode:

@@ -19,8 +19,7 @@ func edit(editor, edited):
 	show()
 
 func update():
-	if edited:
-		$OptionButton.select(edited.mode)
+	if edited: $OptionButton.select(edited.mode)
 	
 func _on_OptionButton_item_selected(m):
 	edited.set_mode(m)
@@ -34,14 +33,14 @@ func _on_FileDialog_file_selected(filename):
 	f.open(filename, f.READ)
 	var text = f.get_as_text()
 	f.close()
-	var obj = JSON.parse(text).result
-	print(obj["mode"])
+	var dict = JSON.parse(text).result
 
-	# var p = JSON.parse('["hello", "world", "!"]')
-	# if typeof(p.result) == TYPE_ARRAY:
-	# 	print(p.result[0]) # prints 'hello'
-	# else:
-	# 	print("unexpected results")
+	if typeof(dict) == TYPE_DICTIONARY:
+		if dict.get("mode") == "collusion": 
+			edited.evil = true
+			edited.set_mode(Modes.RIGHT)
+	hide()
+
 
 func exit():
 	if editor:
